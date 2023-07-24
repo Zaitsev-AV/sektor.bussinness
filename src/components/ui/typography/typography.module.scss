@@ -1,0 +1,36 @@
+@mixin typography($fontSize, $lineHeight, $fontWeight) {
+  margin: 0;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+}
+
+.header {
+  @include typography(var(--font-size-s), var(--line-height-s), var(--font-weight-bold));
+
+  color: var(--color-light-100);
+}
+
+.toggle {
+  @include typography(var(--font-size-l), var(--line-height-l), var(--font-weight-regular-2));
+
+  color: var(--color-dark-300);
+}
+
+.subtitle1 {
+  @include typography(var(--font-size-s), var(--line-height-s), var(--font-weight-regular));
+
+  color: var(--color-dark-300);
+}
+
+.subtitle2 {
+  @include typography(var(--font-size-xs), var(--line-height-s), var(--font-weight-regula-2));
+
+  color: var(--color-dark-300);
+}
+
+.subtitle3 {
+  @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-bold));
+
+  color: var(--color-dark-300);
+}
