@@ -2,15 +2,21 @@ import { StrictMode } from 'react'
 
 import { createRoot } from 'react-dom/client'
 
-import App from './App.tsx'
+import { App } from '@/App.tsx'
+
 import './index.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import './styles/index.scss'
+import { Provider } from 'react-redux'
+
+import { store } from '@/app/store.ts'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </StrictMode>
 )
