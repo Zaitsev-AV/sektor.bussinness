@@ -1,7 +1,12 @@
 import { FC } from 'react'
 
-import { TablePage } from '@/pages/table-page/table-page.tsx'
+import { Navigate } from 'react-router-dom'
+
+import { selectIsAppInitialized } from '@/app/app-selector.ts'
+import { useAppSelector } from '@/app/hooks/useAppSelector.ts'
 
 export const Layout: FC = () => {
-  return <TablePage />
+  const isInitialized = useAppSelector(selectIsAppInitialized)
+
+  return isInitialized ? <Navigate to="/posts" /> : <div>....loading</div>
 }

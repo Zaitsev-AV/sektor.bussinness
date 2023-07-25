@@ -6,12 +6,13 @@ import { Sort } from '@/components/ui/table'
 import { postsApi } from '@/services/posts/posts-api.ts'
 import { PostsType } from '@/services/posts/types.ts'
 
-type InitialStateType = {
+type PostsInitialStateType = {
   posts: PostsType
   sort: Sort
+  searchQuery: string
 }
 
-const initialState: InitialStateType = {
+const initialState: PostsInitialStateType = {
   posts: [
     {
       userId: 0,
@@ -21,6 +22,7 @@ const initialState: InitialStateType = {
     },
   ],
   sort: null,
+  searchQuery: '',
 }
 
 export const slice = createSlice({
@@ -29,6 +31,9 @@ export const slice = createSlice({
   reducers: {
     setSortParams: (state, action: PayloadAction<Sort>) => {
       state.sort = action.payload
+    },
+    setSearchQuery(state, action) {
+      state.searchQuery = action.payload
     },
   },
   extraReducers: builder => {
@@ -40,11 +45,7 @@ export const slice = createSlice({
 
 const getPosts = createAppAsyncThunk<PostsType, void>('table/getTable', (_, thunkAPI) => {
   return thunkTryCatch(thunkAPI, async () => {
-    const res = await postsApi.getPosts().then(res => res.data)
-
-    console.log(res)
-
-    return res
+    return await postsApi.getPosts().then(res => res.data)
   })
 })
 

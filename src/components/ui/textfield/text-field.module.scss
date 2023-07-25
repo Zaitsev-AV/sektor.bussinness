@@ -8,8 +8,8 @@
   align-items: center;
   justify-content: center;
 
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .root {
@@ -30,43 +30,38 @@
       align-items: center;
 
       width: 100%;
-      padding-right: 12px;
-      padding-left: 12px;
+      padding-right: 0.75rem;
+      padding-left: 0.75rem;
 
       font-family: Roboto, sans-serif;
-      font-size: 16px;
-      line-height: 36px;
+      font-size: 1rem;
+      line-height: 2.25rem;
       color: var(--color-light-100);
 
       background-color: transparent;
       border: 1px solid var(--color-dark-300);
-      border-radius: 2px;
+      border-radius: 0.125rem;
 
       &:disabled {
         color: var(--color-dark-300);
 
         &::placeholder {
-          font-size: 14px;
+          font-size: 0.875rem;
           font-weight: 400;
           color: var(--color-dark-300);
         }
       }
 
-      &:focus {
-        border-color: var(--color-info-700);
-        outline: none;
-      }
-
       &:-webkit-autofill,
       &:-webkit-autofill:hover,
       &:-webkit-autofill:focus {
-        box-shadow: 0 0 0 30px var(--color-dark-700) inset !important;
+        box-shadow: 0 0 0 1.875rem var(--color-dark-300) inset !important;
 
         -webkit-text-fill-color: var(--color-dark-100) !important;
       }
 
       &:enabled:hover {
-        background-color: var(--color-dark-700);
+        background-color: var(--color-dark-300);
       }
 
       &:enabled:active {
@@ -78,26 +73,26 @@
       }
 
       &:enabled:not(:focus):hover {
-        background-color: var(--color-dark-700);
+        background-color: var(--color-dark-300);
         border-color: var(--color-dark-100);
       }
 
       &[type='search']::-webkit-search-cancel-button {
         cursor: pointer;
-        width: 16px;
-        height: 16px;
+        width: 1rem;
+        height: 1rem;
         appearance: none;
       }
     }
 
     .search {
-      padding: 18px 0 15px 26px;
+      padding: 1.125rem 0 0.938rem 1.625rem;
     }
 
     .searchIcon {
       @include icons;
 
-      right: 24px;
+      right: 1.5rem;
     }
   }
 }

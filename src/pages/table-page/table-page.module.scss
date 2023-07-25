@@ -1,12 +1,52 @@
 .container {
-  padding: 23px 77px 25px 76px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.438rem 4.813rem 1.563rem 4.75rem;
 
   .field {
     width: 40%;
-    margin-bottom: 15px;
+    margin-bottom: 0.938rem;
   }
 
   .pagination {
-    margin: 15px 103px 12px 119px;
+    margin: 0.938rem 6.438rem 0.75rem 7.438rem;
+  }
+
+  @media screen and (width <= 360px) {
+    .container {
+      padding: 0.938rem;
+    }
+  }
+
+  @media screen and (width <= 400px) {
+    .field {
+      width: 100%;
+    }
+  }
+
+  @media screen and (width <= 500px) {
+    .field {
+      width: 100%;
+    }
+
+    .container {
+      padding: 0.938rem;
+    }
+  }
+
+  @media screen and (width <= 768px) {
+    .field {
+      width: 100%;
+    }
+
+    .pagination {
+      margin: 0.938rem 0.625rem;
+    }
+  }
+
+  @media screen and (width <= 1024px) {
+    .container {
+      padding: 1.438rem 1.875rem;
+    }
   }
 }
