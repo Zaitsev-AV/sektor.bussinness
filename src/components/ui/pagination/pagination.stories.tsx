@@ -1,8 +1,8 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Pagination, PaginationPropsType } from './'
+import { Pagination, Props } from '@/components/ui/pagination/pagination.tsx'
 
 const meta = {
   title: 'Components/Pagination',
@@ -20,35 +20,10 @@ const meta = {
       exclude: /(?:\b|')(currentPage|pageSize|onPageChange)(?:\b|')/g,
     },
   },
-  argTypes: {
-    // currentPage: {
-    //   table: {
-    //     disable: true,
-    //   },
-    //   control: false,
-    // },
-  },
 } satisfies Meta<typeof Pagination>
 
-const ControlledPagination: FC<PaginationPropsType> = ({
-  onPageSizeChange,
-  pageSize,
-  currentPage,
-  onPageChange,
-  ...args
-}) => {
-  const [page, setPage] = useState(1)
-  const [pSize, setPSize] = useState('10')
-
-  return (
-    <Pagination
-      pageSize={+pSize}
-      onPageSizeChange={setPSize}
-      currentPage={page}
-      onPageChange={setPage}
-      {...args}
-    />
-  )
+const ControlledPagination: FC<Props> = ({ pageSize, currentPage, ...args }) => {
+  return <Pagination pageSize={10} currentPage={1} {...args} />
 }
 
 export default meta
@@ -57,8 +32,8 @@ export const Default: Story = {
   args: {
     currentPage: 1,
     pageSize: 10,
-    siblingCount: 1,
-    totalCount: 100,
+    setCurrentPage: () => console.log('call'),
+    lastPage: 100,
   },
   render: args => <ControlledPagination {...args} />,
 }

@@ -1,60 +1,32 @@
-.container {
+.pagination {
   display: flex;
-  gap: 1.5rem;
-  align-items: center;
+  flex-wrap: nowrap;
   justify-content: space-between;
-
-  width: 100%;
 }
 
-.pages {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.numbers {
-  display: flex;
-  font-style: italic;
-}
-
-.page {
-  all: unset;
-
+.page_link {
   cursor: pointer;
 
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
 
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
+  padding: 10px 15px;
 
-  border: 1px solid transparent;
-  border-radius: 0.13rem;
+  font-style: italic;
+  text-decoration: none;
 
-  &:focus-visible {
-    color: var(--color-success);
-  }
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
 
   &:hover {
-    color: var(--color-light-100);
-  }
-
-  &.disabled {
-    pointer-events: none;
-    color: var(--color-dark-200);
-  }
-
-  &.active {
-    color: var(--color-success);
+    background-color: var(--color-light-200);
   }
 }
 
-.dots {
-  pointer-events: none;
-  user-select: none;
+.page_link[datatype='active'] {
+  > p {
+    color: var(--color-success);
+  }
 }

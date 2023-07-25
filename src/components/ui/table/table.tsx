@@ -16,17 +16,17 @@ const Root: FC<TableProps> = ({ className, ...rest }) => {
 }
 
 export type Sort = {
-  columnKey: string
+  columnKey: 'id' | 'title' | 'body'
   direction: 'asc' | 'desc' | null
 } | null
-type Column = {
-  key: string
+
+type ColumnType = {
+  key: 'id' | 'title' | 'body'
   title: string
-  sortable: boolean
 }
 type HeadProps = Omit<
   ComponentPropsWithoutRef<'thead'> & {
-    columns: Column[]
+    columns: ColumnType[]
     sort?: Sort
     onSort?: (sort: Sort) => void
     className?: string
@@ -34,8 +34,8 @@ type HeadProps = Omit<
   'children'
 >
 const Head: FC<HeadProps> = ({ columns, sort, onSort, className, ...rest }) => {
-  const handlerSort = (key: string, sortable?: boolean) => {
-    if (!onSort || !sortable) return
+  const handlerSort = (key: 'id' | 'title' | 'body') => {
+    if (!onSort) return
 
     if (key !== sort?.columnKey) {
       return onSort({ columnKey: key, direction: 'asc' })
@@ -50,9 +50,9 @@ const Head: FC<HeadProps> = ({ columns, sort, onSort, className, ...rest }) => {
   return (
     <thead className={className} {...rest}>
       <tr>
-        {columns.map(col => {
+        {columns.map((col: ColumnType) => {
           const handler = () => {
-            handlerSort(col.key, col.sortable)
+            handlerSort(col.key)
           }
 
           return (
@@ -62,7 +62,6 @@ const Head: FC<HeadProps> = ({ columns, sort, onSort, className, ...rest }) => {
               onClick={handler}
               key={col.key}
               columnKey={col.key}
-              sortable={col.sortable}
             />
           )
         })}

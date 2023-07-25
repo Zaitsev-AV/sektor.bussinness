@@ -1,12 +1,14 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { createAppAsyncThunk } from '@/common/utils'
 import { thunkTryCatch } from '@/common/utils/thunkTryCatch.ts'
+import { Sort } from '@/components/ui/table'
 import { postsApi } from '@/services/posts/posts-api.ts'
 import { PostsType } from '@/services/posts/types.ts'
 
 type InitialStateType = {
   posts: PostsType
+  sort: Sort
 }
 
 const initialState: InitialStateType = {
@@ -18,15 +20,16 @@ const initialState: InitialStateType = {
       title: '',
     },
   ],
+  sort: null,
 }
 
 export const slice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-    // setQueryParams: (state, action: PayloadAction<QueryCardsParams>) => {
-    //   state.queryParams = { ...state.queryParams, ...action.payload }
-    // },
+    setSortParams: (state, action: PayloadAction<Sort>) => {
+      state.sort = action.payload
+    },
   },
   extraReducers: builder => {
     builder.addCase(getPosts.fulfilled, (state, action) => {
@@ -47,3 +50,4 @@ const getPosts = createAppAsyncThunk<PostsType, void>('table/getTable', (_, thun
 
 export const postsThunks = { getPosts }
 export const postsReducer = slice.reducer
+export const postsActions = slice.actions

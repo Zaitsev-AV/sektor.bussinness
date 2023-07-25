@@ -1,17 +1,14 @@
 export const columns = [
   {
-    key: 'id',
+    key: 'id' as const,
     title: 'ID',
-    sortable: true,
   },
   {
-    key: 'title',
+    key: 'title' as const,
     title: 'Загаловок',
-    sortable: true,
   },
   {
-    key: 'description',
+    key: 'body' as const,
     title: 'Описание',
-    sortable: true,
   },
 ]

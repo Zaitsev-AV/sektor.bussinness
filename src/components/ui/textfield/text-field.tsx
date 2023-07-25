@@ -6,6 +6,7 @@ import s from './text-field.module.scss'
 
 import { Search } from '@/assets'
 import { Typography } from '@/components'
+import { Box } from '@/components/ui/Box/Box.tsx'
 
 export type InputProps = {
   containerProps?: ComponentProps<'div'>
@@ -31,7 +32,7 @@ export const TextField = forwardRef<HTMLInputElement, InputProps>(
     )
 
     return (
-      <div className={classNames.root}>
+      <Box className={classNames.root}>
         <Typography
           className={classNames.label}
           variant="subtitle1"
@@ -41,7 +42,7 @@ export const TextField = forwardRef<HTMLInputElement, InputProps>(
           {label}
           {/*<div className={cNames.error}>{errorMessage}</div>*/}
         </Typography>
-        <div className={classNames.container}>
+        <Box className={classNames.container}>
           <input
             ref={ref}
             disabled={disabled}
@@ -51,8 +52,8 @@ export const TextField = forwardRef<HTMLInputElement, InputProps>(
             {...rest}
           />
           {leftIcon}
-        </div>
-      </div>
+        </Box>
+      </Box>
     )
   }
 )
