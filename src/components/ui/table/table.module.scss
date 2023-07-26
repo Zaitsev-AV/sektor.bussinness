@@ -55,3 +55,23 @@
   justify-content: center;
   width: 1rem;
 }
+
+@media screen and (width < 500px) {
+  .dataCell {
+    padding: 0.3rem 0.5rem;
+  }
+
+  .title {
+    gap: 0;
+  }
+}
+
+@media screen and (width < 760px) {
+  .dataCell {
+    padding: 0.36rem 0.7rem;
+  }
+
+  .title {
+    gap: 0;
+  }
+}

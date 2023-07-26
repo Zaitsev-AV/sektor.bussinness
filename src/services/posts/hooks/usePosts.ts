@@ -1,7 +1,6 @@
 import { appActions } from '@/app/app-slice.ts'
-import { useAppDispatch } from '@/app/hooks/useAppDispatch.ts'
-import { useAppSelector } from '@/app/hooks/useAppSelector.ts'
-import { useDebounce } from '@/common/hooks/useDebounce.ts'
+import { useAppDispatch, useAppSelector } from '@/app/hooks'
+import { useDebounce } from '@/common'
 import { Sort } from '@/components/ui/table'
 import {
   selectGetPostsData,
@@ -71,8 +70,13 @@ export const usePosts = () => {
       return posts
     }
 
-    return posts.filter(post => {
+    /* return posts.filter(post => {
       return post.title.toLowerCase().includes(searchQuery.toLowerCase())
+    })*/
+    return posts.filter(post => {
+      const postFields = `${post.id} ${post.title} ${post.body}`.toLowerCase()
+
+      return postFields.includes(searchQuery.toLowerCase().trim())
     })
   }
 
