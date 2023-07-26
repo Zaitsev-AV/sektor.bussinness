@@ -1,21 +1,33 @@
+/**
+ * Хук для построения пагинации
+ *
+ * @param {number} currentPage - Номер текущей страницы
+ * @param {number} lastPage - Номер последней страницы
+ * @param {number} maxLength - Максимальное кол-во кнопок пагинации
+ *
+ * @returns массив из номеров страниц для отображения пагинации
+ *
+ * Функция анализирует номера текущей и последней страницы,
+ * чтобы определить какие номера страниц нужно отобразить с учетом максимальной длины.
+ *
+ * Если страниц меньше чем макс.длина - показываются все.
+ * Иначе отображаются страницы рядом с текущей, а в середине и в конце - многоточия.
+ *
+ */
+
 export const usePagination = (currentPage: number, lastPage: number, maxLength: number) => {
   const res: Array<number> = []
 
-  // handle lastPage less than maxLength
   if (lastPage <= maxLength) {
     for (let i = 1; i <= lastPage; i++) {
       res.push(i)
     }
-  }
-
-  // handle ellipsis logics
-  else {
+  } else {
     const firstPage = 1
     const confirmedPagesCount = 3
     const deductedMaxLength = maxLength - confirmedPagesCount
     const sideLength = deductedMaxLength / 2
 
-    // handle ellipsis in the middle
     if (currentPage - firstPage < sideLength || lastPage - currentPage < sideLength) {
       for (let j = 1; j <= sideLength + firstPage; j++) {
         res.push(j)
@@ -26,10 +38,7 @@ export const usePagination = (currentPage: number, lastPage: number, maxLength: 
       for (let k = lastPage - sideLength; k <= lastPage; k++) {
         res.push(k)
       }
-    }
-
-    // handle two ellipsis
-    else if (
+    } else if (
       currentPage - firstPage >= deductedMaxLength &&
       lastPage - currentPage >= deductedMaxLength
     ) {
@@ -44,10 +53,7 @@ export const usePagination = (currentPage: number, lastPage: number, maxLength: 
 
       res.push(NaN)
       res.push(lastPage)
-    }
-
-    // handle ellipsis not in the middle
-    else {
+    } else {
       const isNearFirstPage = currentPage - firstPage < lastPage - currentPage
       let remainingLength = maxLength
 

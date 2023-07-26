@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react'
 
 import { useNavigate, useParams } from 'react-router-dom'
 
-import s from './table-page.module.scss'
+import s from './post-page.module.scss'
 
 import { TextField } from '@/components'
 import { Box } from '@/components/ui/Box/Box.tsx'
