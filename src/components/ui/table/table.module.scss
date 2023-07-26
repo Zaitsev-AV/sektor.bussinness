@@ -65,3 +65,13 @@
     gap: 0;
   }
 }
+
+@media screen and (width < 760px) {
+  .dataCell {
+    padding: 0.36rem 0.7rem;
+  }
+
+  .title {
+    gap: 0;
+  }
+}

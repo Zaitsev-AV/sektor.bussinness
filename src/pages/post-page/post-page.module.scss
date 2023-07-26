@@ -43,9 +43,9 @@
   }
 }
 
-@media screen and (width > 768px) {
+@media screen and (width <= 768px) {
   .field {
-    width: 100%;
+    width: 80%;
   }
 
   .pagination {
@@ -54,6 +54,10 @@
 }
 
 @media screen and (width < 1024px) {
+  .field {
+    width: 80%;
+  }
+
   .container {
     padding: 1.438rem 0.875rem;
   }
