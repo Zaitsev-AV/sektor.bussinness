@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import { Layout } from '@/components/ui/layout/layout.tsx'
-import { PostsPage } from '@/pages/table-page/posts-page.tsx'
+import { PostsPage } from '@/pages'
 import { usePosts } from '@/services/posts/hooks/usePosts.ts'
 
 const routes = createBrowserRouter([

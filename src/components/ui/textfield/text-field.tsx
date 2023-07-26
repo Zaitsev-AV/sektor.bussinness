@@ -6,7 +6,7 @@ import s from './text-field.module.scss'
 
 import { Search } from '@/assets'
 import { Typography } from '@/components'
-import { Box } from '@/components/ui/Box/Box.tsx'
+import { Box } from '@/components/ui/box/box.tsx'
 
 export type InputProps = {
   containerProps?: ComponentProps<'div'>

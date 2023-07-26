@@ -1,2 +1,7 @@
 export * from './textfield'
 export * from './typography'
+export * from './table'
+export * from './pagination'
+export * from './page'
+export * from './box'
+export * from './layout'

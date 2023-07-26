@@ -3,7 +3,7 @@ import { clsx } from 'clsx'
 import s from './pagination.module.scss'
 
 import { Typography } from '@/components'
-import { Box } from '@/components/ui/Box/Box.tsx'
+import { Box } from '@/components/ui/box/box.tsx'
 import PageLink from '@/components/ui/pagination/page-link.tsx'
 import { usePagination } from '@/components/ui/pagination/usePagination.ts'
 

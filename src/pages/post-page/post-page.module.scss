@@ -14,13 +14,17 @@
 
   @media screen and (width <= 360px) {
     .container {
-      padding: 0.938rem;
+      padding: 0.4rem;
     }
   }
 
   @media screen and (width <= 400px) {
     .field {
       width: 100%;
+    }
+
+    .container {
+      padding: 0;
     }
   }
 
@@ -30,23 +34,27 @@
     }
 
     .container {
-      padding: 0.938rem;
-    }
-  }
-
-  @media screen and (width <= 768px) {
-    .field {
-      width: 100%;
+      padding: 10px;
     }
 
     .pagination {
-      margin: 0.938rem 0.625rem;
+      margin: 0;
     }
   }
+}
 
-  @media screen and (width <= 1024px) {
-    .container {
-      padding: 1.438rem 1.875rem;
-    }
+@media screen and (width > 768px) {
+  .field {
+    width: 100%;
+  }
+
+  .pagination {
+    margin: 0.938rem 0.625rem;
+  }
+}
+
+@media screen and (width < 1024px) {
+  .container {
+    padding: 1.438rem 0.875rem;
   }
 }

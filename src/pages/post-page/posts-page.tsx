@@ -4,13 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 import s from './post-page.module.scss'
 
-import { TextField } from '@/components'
-import { Box } from '@/components/ui/Box/Box.tsx'
-import { Page } from '@/components/ui/page'
-import { Pagination } from '@/components/ui/pagination'
-import { Table } from '@/components/ui/table'
-import { columns } from '@/components/ui/table/colum.ts'
-import { usePosts } from '@/services/posts/hooks/usePosts.ts'
+import { Table, Box, columns, Page, Pagination, TextField } from '@/components'
+import { usePosts } from '@/services'
 
 export const PostsPage: FC = () => {
   const { page } = useParams()
