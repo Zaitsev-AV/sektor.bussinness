@@ -30,7 +30,7 @@ export const Pagination = ({ currentPage, lastPage, pageSize = 6, setCurrentPage
         {pageNums.map((pageNum, idx) => (
           <PageLink
             key={idx}
-            disabled={isNaN(pageNum)}
+            data-disabled={isNaN(pageNum) ? 'disabled' : null}
             onClick={() => setCurrentPage(pageNum)}
             datatype={currentPage === pageNum ? 'active' : undefined}
           >

@@ -7,6 +7,7 @@
 
 .page_link {
   cursor: pointer;
+  user-select: none;
 
   display: inline-flex;
   align-items: center;
@@ -24,6 +25,11 @@
   &:hover {
     background-color: var(--color-light-200);
   }
+}
+
+.disabled {
+  user-select: none;
+  color: var(--color-dark-400);
 }
 
 .page_link[datatype='active'] {
