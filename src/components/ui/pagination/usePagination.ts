@@ -24,9 +24,10 @@ export const usePagination = (currentPage: number, lastPage: number, maxLength: 
     }
   } else {
     const firstPage = 1
-    const confirmedPagesCount = 3
+    const confirmedPagesCount = 2
     const deductedMaxLength = maxLength - confirmedPagesCount
-    const sideLength = deductedMaxLength / 2
+
+    const sideLength = Math.ceil(deductedMaxLength / 2)
 
     if (currentPage - firstPage < sideLength || lastPage - currentPage < sideLength) {
       for (let j = 1; j <= sideLength + firstPage; j++) {

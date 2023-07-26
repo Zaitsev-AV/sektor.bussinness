@@ -1,6 +1,7 @@
 .pagination {
   display: flex;
   flex-wrap: nowrap;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -28,5 +29,17 @@
 .page_link[datatype='active'] {
   > p {
     color: var(--color-success);
+  }
+}
+
+@media screen and (width < 1024px) {
+  .page_link {
+    padding: 0.4rem 0.7rem;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .page_link {
+    padding: 0.1rem 0.3rem;
   }
 }

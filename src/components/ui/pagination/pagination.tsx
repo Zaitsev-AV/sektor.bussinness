@@ -10,11 +10,11 @@ import { usePagination } from '@/components/ui/pagination/usePagination.ts'
 export type Props = {
   currentPage: number
   lastPage: number
-  pageSize: number
+  pageSize?: number
   setCurrentPage: (page: number) => void
 }
 
-export const Pagination = ({ currentPage, lastPage, pageSize, setCurrentPage }: Props) => {
+export const Pagination = ({ currentPage, lastPage, pageSize = 6, setCurrentPage }: Props) => {
   const pageNums = usePagination(currentPage, lastPage, pageSize)
   const classNames = {
     pagination: clsx(s.pagination),

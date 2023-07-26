@@ -64,7 +64,6 @@ export const PostsPage: FC = () => {
               setCurrentPage(newPage)
               navigate(`/posts/${newPage}`)
             }}
-            pageSize={pageSize}
             lastPage={lastPage}
           />
         </Box>
