@@ -71,8 +71,13 @@ export const usePosts = () => {
       return posts
     }
 
-    return posts.filter(post => {
+    /* return posts.filter(post => {
       return post.title.toLowerCase().includes(searchQuery.toLowerCase())
+    })*/
+    return posts.filter(post => {
+      const postFields = `${post.id} ${post.title} ${post.body}`.toLowerCase()
+
+      return postFields.includes(searchQuery.toLowerCase().trim())
     })
   }
 
